@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner - Home</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        .balance {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .transactions {
+            margin-bottom: 20px;
+        }
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        .add-transaction {
+            display: flex;
+            justify-content: space-between;
+        }
+        .add-transaction input {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .add-transaction button {
+            width: 48%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-transaction button:hover {
+            background-color: #0056b3;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Planner</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="statistics.html">Statistics</a>
+            <a href="investment.html">Investment</a>
+        </nav>
+        <div class="balance">
+            Balance: $<span id="balance">0.00</span>
+        </div>
+        <div class="transactions">
+            <h2>Transactions</h2>
+            <div id="transaction-list">
+                
+            </div>
+        </div>
+        <div class="add-transaction">
+            <input type="text" id="description" placeholder="Description">
+            <input type="number" id="amount" placeholder="Amount">
+            <button type="button" onclick="addTransaction()">Add</button>
+        </div>
+    </div>
+    <script>
+        let balance = 0;
+
+        function addTransaction() {
+            const description = document.getElementById('description').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+
+            if (description && amount) {
+                const transactionList = document.getElementById('transaction-list');
+
+                const transactionItem = document.createElement('div');
+                transactionItem.className = 'transaction-item';
+                transactionItem.innerHTML = `
+                    <span>${description}</span>
+                    <span>$${amount.toFixed(2)}</span>
+                `;
+                transactionList.appendChild(transactionItem);
+
+                balance += amount;
+                document.getElementById('balance').innerText = balance.toFixed(2);
+
+                document.getElementById('description').value = '';
+                document.getElementById('amount').value = '';
+            } else {
+                alert('Please enter a valid description and amount.');
+            }
+        }
+    </script>
+</body>
+</html>

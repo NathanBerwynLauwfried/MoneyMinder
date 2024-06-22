@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner - Investment</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        .investment {
+            margin-bottom: 20px;
+        }
+        .investment-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .investment-item:last-child {
+            border-bottom: none;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Planner</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="statistics.html">Statistics</a>
+            <a href="investment.html">Investment</a>
+        </nav>
+        <div class="investment">
+            <h2>Investment Options</h2>
+            <div class="investment-item">
+                <span>Stocks</span>
+                <span>$1000</span>
+            </div>
+            <div class="investment-item">
+                <span>Bonds</span>
+                <span>$500</span>
+            </div>
+            <div class="investment-item">
+                <span>Mutual Funds</span>
+                <span>$1500</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
